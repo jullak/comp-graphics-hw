@@ -54,7 +54,6 @@ add_executable(hw-1_triangles
 		triangles/main.cpp
 
 		${UTIL_SOURCE}
-
 		triangles/VertexShader.glsl
 		triangles/FragmentShader1.glsl
 		triangles/FragmentShader2.glsl)
@@ -68,3 +67,13 @@ add_executable(hw-1_figure
 		figure/VertexShader.glsl
 		figure/FragmentShader.glsl)
 target_link_libraries(hw-1_figure ${ALL_LIBS})
+
+
+add_custom_command(
+		TARGET hw-1_triangles POST_BUILD
+		COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_CFG_INTDIR}/hw-1_triangles${CMAKE_EXECUTABLE_SUFFIX}" "${CMAKE_CURRENT_SOURCE_DIR}/triangles/"
+)
+add_custom_command(
+		TARGET hw-1_figure POST_BUILD
+		COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_CFG_INTDIR}/hw-1_figure${CMAKE_EXECUTABLE_SUFFIX}" "${CMAKE_CURRENT_SOURCE_DIR}/figure/"
+)
