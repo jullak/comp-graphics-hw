@@ -14,7 +14,6 @@
 
 using namespace glm;
 
-
 namespace {
     class MyScenario : public CameraRotation::IScenario {
     public:
